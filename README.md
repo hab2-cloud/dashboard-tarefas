@@ -21,3 +21,6 @@ Sistema de gerenciamento de tarefas com operações CRUD.
 
 ## Armazenamento
 Os dados serão armazenados no localStorage.
+
+## Atualização
+Alteração feita na branch arquitetura para organização do projeto.
