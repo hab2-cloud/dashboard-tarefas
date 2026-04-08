@@ -8,15 +8,23 @@
 <body>
 
   <div class="container">
-    <h1>Minhas Tarefas</h1>
+    
+    <header>
+      <h1>📋 Dashboard de Tarefas</h1>
+      <p>Gerencie suas tarefas</p>
+    </header>
 
-    <div class="input-area">
-      <input type="text" id="tarefaInput" placeholder="Digite uma tarefa...">
-      <button>Adicionar</button>
+    <div class="card">
+
+      <div class="input-area">
+        <input type="text" id="tarefaInput" placeholder="Digite uma nova tarefa...">
+        <button id="btnAdicionar">Adicionar</button>
+      </div>
+
+      <ul id="listaTarefas"></ul>
+
     </div>
 
-    <ul id="listaTarefas">
-    </ul>
   </div>
 
   <script src="script.js"></script>
