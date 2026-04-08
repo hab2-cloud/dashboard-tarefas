@@ -1,1 +1,1 @@
-# dashboard-tarefas
+Projeto criado pelo grupo - Arquitetura definida
