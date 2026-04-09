@@ -1,45 +1,64 @@
 const buttonAdicionar = document.getElementById("btnAdicionar")
 const listaTarefa = document.getElementById('listaTarefas')
+const aviso = document.getElementById('ocult')
 
 // adicionando tarefas do javascript
 function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag li. Esperado: <li><input><span>o que eu quiser</span></li>
     
     const tarefa = document.getElementById('tarefaInput').value
-    const texto = tarefa
-    const li = document.createElement('li')
-    const input = document.createElement('input')
-    const span = document.createElement('span')
-    const btnDelete = document.createElement('button')
-    const inputDiv = document.createElement('input')
-    const div = document.createElement('div')
+    if(tarefa === ''){
+        aviso.style.display = 'block'
+    }
+    else{
+        aviso.style.display = 'none'
+        const texto = tarefa
+        const li = document.createElement('li')
+        const input = document.createElement('input')
+        const span = document.createElement('span')
+        const btnDelete = document.createElement('button')
+        const inputDiv = document.createElement('input')
+        const div = document.createElement('div')
+        
+        
+        li.setAttribute('class','task-item')
+        input.setAttribute('type', 'checkbox')
+        inputDiv.setAttribute('type', 'text')
+        inputDiv.setAttribute('placeholder', 'Edite a tarefa...')
+        div.setAttribute('class', 'box-edit')
+        div.style.display = "none"
+        span.textContent = texto
+        btnDelete.setAttribute('class','btn-delete')
+        btnDelete.setAttribute('class', 'btn-edit')
+        
+        // adicionando a opção de "completar atividade":
+        input.addEventListener('click', () =>{
+            if(input.checked != false){
+                li.style.backgroundColor = '#1dc48c'
+                span.style.textDecoration = 'line-through'    
+            }
+            else{
+                li.style.backgroundColor = '';
+                span.style.textDecoration = 'none';
+            }
+        })
     
     
-    li.setAttribute('class','task-item')
-    input.setAttribute('type', 'radio')
-    inputDiv.setAttribute('type', 'text')
-    inputDiv.setAttribute('placeholder', 'Edite a tarefa...')
-    div.setAttribute('class', 'box-edit')
-    div.style.display = "none"
-    span.textContent = texto
-    btnDelete.setAttribute('class','btn-delete')
-    btnDelete.setAttribute('class', 'btn-edit')
-    
-    
-    // adicionando a opção de editar:
-    li.addEventListener('dblclick', editTask)
-    
-    // adicionando a opção de remover:
-    btnDelete.addEventListener('click', () => {
-        li.remove() 
-    })
-    
-    div.appendChild(inputDiv)
-    
-    li.appendChild(div)
-    li.appendChild(input)
-    li.appendChild(span)
-    li.appendChild(btnDelete)
-    return li
+        // adicionando a opção de editar:
+        li.addEventListener('dblclick', editTask)
+        
+        // adicionando a opção de remover:
+        btnDelete.addEventListener('click', () => {
+            li.remove() 
+        })
+        
+        div.appendChild(inputDiv)
+        
+        li.appendChild(div)
+        li.appendChild(input)
+        li.appendChild(span)
+        li.appendChild(btnDelete)
+        return li
+    }
 }
 
 
@@ -50,7 +69,7 @@ function addTask(){
     listaTarefa.appendChild(liTask)
 }
 
-// criando a função editar: muda o html para 
+// criando a função editar: apenas deixo o display da div oculta a mostra e coloco um input do tipo texto para modificar a tarefa   
 function editTask(){
     const div = this.querySelector('.box-edit')
     const input = div.querySelector('input')
