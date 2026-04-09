@@ -1,10 +1,9 @@
-const CHAVE = "tarefas";
-
+// PEGAR tarefas
 function pegarTarefas() {
-    const dados = localStorage.getItem(CHAVE);
-        return dados ? JSON.parse(dados) : [];
-        }
+  return JSON.parse(localStorage.getItem("tarefas")) || [];
+}
 
-        function salvarTarefas(tarefas) {
-            localStorage.setItem(CHAVE, JSON.stringify(tarefas));
-            }
+// SALVAR tarefas
+function salvarTarefas(tarefas) {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
