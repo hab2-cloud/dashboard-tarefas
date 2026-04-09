@@ -8,7 +8,6 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
     const texto = tarefa
     const li = document.createElement('li')
     const input = document.createElement('input')
-    const div = document.createElement('div')
     const span = document.createElement('span')
     const btnDelete = document.createElement('button')
     const inputDiv = document.createElement('input')
@@ -27,7 +26,7 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
     
     
     // adicionando a opção de editar:
-    li.addEventListener('dbclick', editTask)
+    li.addEventListener('dblclick', editTask)
     
     // adicionando a opção de remover:
     btnDelete.addEventListener('click', () => {
@@ -52,13 +51,19 @@ function addTask(){
 
 // criando a função editar: muda o html para 
 function editTask(){
-    const div = this.querySelector('div')
+    const div = this.querySelector('.box-edit')
     const input = div.querySelector('input')
-    const newTask = input.textContent
-    const oldTask = this.querySelector('input')
+    const span = this.querySelector('span')
+
     div.style.display = 'block'
-    input.addEventListener('keydown', ()=>{
-        oldTask.textContent = newTask
+    input.focus()
+
+    input.addEventListener('keydown', (event)=>{
+        if (event.key === 'Enter'){
+            span.textContent = input.value
+            div.style.display = 'none'
+        }
+        
     })
 
 }
