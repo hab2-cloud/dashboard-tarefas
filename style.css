@@ -67,6 +67,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .acoes {
@@ -88,4 +89,31 @@ button {
   border-radius: 6px;
   color: white;
   cursor: pointer;
+}
+
+#ocult{
+  display: none;
+  font-size: 14px;
+}
+.btn-delete {
+    display: flex;
+    align-items: center;     
+    justify-content: center; 
+    width: 35px;             
+    height: 35px;
+    padding: 0;
+    border: none;
+    background: white;
+    cursor: pointer;
+    margin-left: auto;      
+}
+.btn-delete:hover{
+  background-color: red;
+}
+
+.btn-delete img {
+    width: 20px;         
+    height: 20px;
+    display: block;
+    object-fit: contain;     
 }
