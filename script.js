@@ -1,4 +1,4 @@
-const buttonAdicionar = document.querySelector("#btnAdicionar")
+const buttonAdicionar = document.getElementById("btnAdicionar")
 const listaTarefa = document.getElementById('listaTarefas')
 
 // adicionando tarefas do javascript
@@ -18,11 +18,18 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
 
     const btnDelete = document.createElement('button')
     btnDelete.setAttribute('class','btn-delete')
+    
+    // adicionando a opção de remover:
+    btnDelete.addEventListener('click', () => {
+        li.remove() 
+    })
 
     li.appendChild(input)
     li.appendChild(span)
     li.appendChild(btnDelete)
+    return li
 }
+
 
 // criando a função para adicionar a atividade à lista
 // funcionará assim que clicar no botão de adicionar
@@ -31,13 +38,4 @@ function addTask(){
     listaTarefa.appendChild(liTask)
 }
 
-// criando a função de remover a atividade à lista
-
-const deleteBtn = document.getElementsByClassName("btn-delete")
-deleteBtn.forEach(button => {
-    button.addEventListener('click', ()=>{
-        const pai = button.parentNode
-        pai.remove()        
-    })
-})
-
+buttonAdicionar.addEventListener('click', addTask)
