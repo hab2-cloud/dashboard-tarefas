@@ -94,3 +94,12 @@ button {
   display: none;
   font-size: 14px;
 }
+.btn-delete{
+  border-radius: 2px;
+  height: 20px;
+  width: 20px;
+  box-shadow: #434040;
+}
+.btn-delete:hover{
+  background-color: red;
+}

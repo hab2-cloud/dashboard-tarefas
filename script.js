@@ -18,7 +18,7 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
         const btnDelete = document.createElement('button')
         const inputDiv = document.createElement('input')
         const div = document.createElement('div')
-        
+        const img = document.createElement('img')
         
         li.setAttribute('class','task-item')
         input.setAttribute('type', 'checkbox')
@@ -28,7 +28,7 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
         div.style.display = "none"
         span.textContent = texto
         btnDelete.setAttribute('class','btn-delete')
-        btnDelete.setAttribute('class', 'btn-edit')
+        img.setAttribute('src', '/img/icon-trash.png')
         
         // adicionando a opção de "completar atividade":
         input.addEventListener('click', () =>{
@@ -52,7 +52,8 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
         })
         
         div.appendChild(inputDiv)
-        
+        btnDelete.appendChild(img)
+
         li.appendChild(div)
         li.appendChild(input)
         li.appendChild(span)
