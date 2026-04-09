@@ -43,6 +43,9 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
             }
         })
         // evitando propagação:  
+        input.addEventListener('dblclick', (e)=>{
+            e.stopPropagation()
+        })
 
         btnDelete.addEventListener('click', (e) => {
             e.stopPropagation();
