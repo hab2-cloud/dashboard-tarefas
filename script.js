@@ -11,7 +11,7 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
     const span = document.createElement('span')
     const btnDelete = document.createElement('button')
     const inputDiv = document.createElement('input')
-    
+    const div = document.createElement('div')
     
     
     li.setAttribute('class','task-item')
@@ -35,6 +35,7 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
     
     div.appendChild(inputDiv)
     
+    li.appendChild(div)
     li.appendChild(input)
     li.appendChild(span)
     li.appendChild(btnDelete)
