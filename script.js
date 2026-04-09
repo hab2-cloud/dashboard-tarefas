@@ -28,11 +28,12 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
         div.style.display = "none"
         span.textContent = texto
         btnDelete.setAttribute('class','btn-delete')
-        img.setAttribute('src', '/img/icon-trash.png')
+        img.setAttribute('src', 'img/icon-trash.png')
         
         // adicionando a opção de "completar atividade":
-        input.addEventListener('click', () =>{
-            if(input.checked != false){
+        input.addEventListener('change', () =>{
+            if(input.checked){
+            
                 li.style.backgroundColor = '#1dc48c'
                 span.style.textDecoration = 'line-through'    
             }
@@ -41,6 +42,12 @@ function createTask(){ // pega o texto, cria objetos html, adiciona tudo na tag 
                 span.style.textDecoration = 'none';
             }
         })
+        // evitando propagação:  
+
+        btnDelete.addEventListener('click', (e) => {
+            e.stopPropagation();
+            li.remove();
+        });
     
     
         // adicionando a opção de editar:
